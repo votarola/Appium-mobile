@@ -10,7 +10,7 @@ import utils.ApplicationLauncher;
 public class Def_WebpayNormalOnepay {
 
     public String codigoOnepay = "";
-    String monto = "99";
+    String monto = "990";
     String pan = "36000000001006";
     String cvv = "322";
 
