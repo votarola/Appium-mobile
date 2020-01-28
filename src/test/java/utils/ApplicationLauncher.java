@@ -1,19 +1,14 @@
 package utils;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
-
-
 import io.appium.java_client.AppiumDriver;
-
-import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import pages.*;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ApplicationLauncher {
 
@@ -57,7 +52,7 @@ public class ApplicationLauncher {
                 "C:/Users/Victor.Otarola/IdeaProjects/Appium-mobile/src/test/resources/driver/windows/chromedriver.exe");
         capabilities.setCapability("noReset", true);
         capabilities.setCapability("autoGrantPermissions", true);
-        capabilities.setCapability("autoGrantPermissions",true);
+        capabilities.setCapability("autoGrantPermissions", true);
         return capabilities;
     }
 
@@ -75,12 +70,12 @@ public class ApplicationLauncher {
                 "C:/Users/Victor.Otarola/IdeaProjects/Appium-mobile/src/test/resources/driver/windows/chromedriver.exe");
         capabilities.setCapability("noReset", true);
         capabilities.setCapability("autoGrantPermissions", true);
-        capabilities.setCapability("autoGrantPermissions",true);
+        capabilities.setCapability("autoGrantPermissions", true);
         return capabilities;
     }
 
-    public static void setOff(){
-       // driverChrome.quit();
+    public static void setOff() {
+        // driverChrome.quit();
         //driverMobile.quit();
     }
 }

@@ -7,8 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ApplicationLauncher;
 
-import java.util.List;
-
 import static utils.ApplicationLauncher.driverMobile;
 
 public class mainPage {
@@ -97,61 +95,61 @@ public class mainPage {
     WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverChrome, 50);
 
 
-    public void clickAddCardDebit(){
+    public void clickAddCardDebit() {
         wait.until(ExpectedConditions.visibilityOf(adddebit_card_button));
         adddebit_card_button.click();
     }
 
-    public void clickAddCardCredit(){
+    public void clickAddCardCredit() {
         wait.until(ExpectedConditions.visibilityOf(addcredit_card_button));
         addcredit_card_button.click();
     }
 
-    public void clickRejectMediosPago(){
+    public void clickRejectMediosPago() {
         wait.until(ExpectedConditions.visibilityOf(btnRejectMediosPago));
         btnRejectMediosPago.click();
     }
 
 
-    public boolean clickAddCard(){
+    public boolean clickAddCard() {
         try {
             wait.until(ExpectedConditions.visibilityOf(addCard));
             addCard.click();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    public boolean clickRejectPagoModal(){
+    public boolean clickRejectPagoModal() {
         try {
             wait.until(ExpectedConditions.visibilityOf(RejectPagoModal));
             RejectPagoModal.click();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    public boolean clickClosePagoModal(){
+    public boolean clickClosePagoModal() {
         try {
             wait.until(ExpectedConditions.visibilityOf(ClosePagoModal));
             ClosePagoModal.click();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    public boolean clickIngresarCodigo(){
+    public boolean clickIngresarCodigo() {
         try {
             wait.until(ExpectedConditions.visibilityOf(ingresarCodigo));
             ingresarCodigo.click();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -167,8 +165,7 @@ public class mainPage {
     }
 
 
-
-    public boolean clickSelectorTarjetas(){
+    public boolean clickSelectorTarjetas() {
         try {
             Thread.sleep(5000);
             wait.until(ExpectedConditions.visibilityOf(txtRLDatos));
@@ -176,79 +173,78 @@ public class mainPage {
             wait.until(ExpectedConditions.visibilityOf(selector_MisTarjetas_title));
             closeMisTarjetas.click();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
 
-    public boolean clickSelectorCuotas(){
+    public boolean clickSelectorCuotas() {
         try {
             wait.until(ExpectedConditions.visibilityOf(selecCuotas));
             selecCuotas.click();
             Cuota3.click();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    public boolean clickBotonPago(){
+    public boolean clickBotonPago() {
         try {
             btnPay.click();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    public boolean creaPIN()throws InterruptedException {
+    public boolean creaPIN() throws InterruptedException {
         try {
-        wait.until(ExpectedConditions.visibilityOf(key9));
-        key9.click();
-        Thread.sleep(1000);
-        key6.click();
-        Thread.sleep(1000);
-        key3.click();
-        Thread.sleep(1000);
-        key8.click();
-        Thread.sleep(1000);
-        key5.click();
+            wait.until(ExpectedConditions.visibilityOf(key9));
+            key9.click();
+            Thread.sleep(1000);
+            key6.click();
+            Thread.sleep(1000);
+            key3.click();
+            Thread.sleep(1000);
+            key8.click();
+            Thread.sleep(1000);
+            key5.click();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
 
-    public boolean clickAuthPay(){
+    public boolean clickAuthPay() {
         try {
             wait.until(ExpectedConditions.visibilityOf(key9));
             btnAcceptPay.click();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
 
-    public boolean clickIrInicio(){
+    public boolean clickIrInicio() {
         try {
             wait.until(ExpectedConditions.visibilityOf(IrAlInicio));
             Thread.sleep(3000);
             IrAlInicio.click();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
-
 
 
 }

@@ -3,15 +3,9 @@ package definitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import javafx.scene.web.WebView;
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ApplicationLauncher;
-import utils.UtilsDriver;
-
-import javax.swing.plaf.basic.BasicSplitPaneUI;
-import java.awt.*;
 
 public class Def_WebpayNormalOnepay {
 
@@ -57,27 +51,27 @@ public class Def_WebpayNormalOnepay {
         ApplicationLauncher.pageMain.clickIngresarCodigo();
         ApplicationLauncher.pageMain.ingresarCodigo(codigoOnepay.split(""));
 
-    //    boolean SelectorTarjetas = ApplicationLauncher.pageMain.clickSelectorTarjetas();
-    //    Assert.assertTrue("Selector de tarjetas",SelectorTarjetas);
+        //    boolean SelectorTarjetas = ApplicationLauncher.pageMain.clickSelectorTarjetas();
+        //    Assert.assertTrue("Selector de tarjetas",SelectorTarjetas);
 
 
-    //    boolean SelectorCuotas = ApplicationLauncher.pageMain.clickSelectorCuotas();
-    //    Assert.assertTrue("Selector de cuotas",SelectorCuotas);
+        //    boolean SelectorCuotas = ApplicationLauncher.pageMain.clickSelectorCuotas();
+        //    Assert.assertTrue("Selector de cuotas",SelectorCuotas);
 
 
         boolean btnAddCArd = ApplicationLauncher.pageMain.clickAddCard();
-        Assert.assertTrue("Boton Agregar tarjeta desde modal",btnAddCArd);
+        Assert.assertTrue("Boton Agregar tarjeta desde modal", btnAddCArd);
 
         ApplicationLauncher.pageMain.clickAddCardCredit();
         Thread.sleep(5000);
         ApplicationLauncher.pageLoginAppOnepay.cambiarContexto();
         Thread.sleep(3000);
         boolean sendpan = ApplicationLauncher.pageLoginAppOnepay.sendPAN(pan);
-        Assert.assertTrue("Envio PAN",sendpan);
+        Assert.assertTrue("Envio PAN", sendpan);
         boolean sendcvv = ApplicationLauncher.pageLoginAppOnepay.sendCVV(cvv);
-        Assert.assertTrue("Envio cvv",sendcvv);
+        Assert.assertTrue("Envio cvv", sendcvv);
         boolean ContiEnrolment = ApplicationLauncher.pageLoginAppOnepay.ContiEnrolment();
-        Assert.assertTrue("Continuar enrolamiento",ContiEnrolment);
+        Assert.assertTrue("Continuar enrolamiento", ContiEnrolment);
 
 
         //ApplicationLauncher.pageLoginAppOnepay.sendPAN(pan);
@@ -107,17 +101,12 @@ public class Def_WebpayNormalOnepay {
     }
 
 
-
-
-
     @Then("^se realiza el pago con onepay exitosamente y se cierra la sesion del usuario$")
     public void se_realiza_el_pago_con_onepay_exitosamente_y_se_cierra_la_sesion_del_usuario() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         ApplicationLauncher.pageWebPay.clickbtnACK();
 
     }
-
-
 
 
 }
