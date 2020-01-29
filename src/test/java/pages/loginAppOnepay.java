@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ApplicationLauncher;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -63,8 +64,22 @@ public class loginAppOnepay {
     private WebElement PAN;
     @FindBy(xpath = "//*[@id='password-invalid']")
     private WebElement CVV;
+
     @FindBy(xpath = "//*[@text='Continuar']")
-    private WebElement ContinuarEnrolment;
+    private WebElement ContinEnrolment;
+
+
+
+    @FindBy(tagName = "//*[@class='android.widget.Button']")
+    private WebElement tagBtnContinEnrolment;
+
+
+    @FindBy(xpath = "//*[@id='Cross']")
+    //@FindBy(xpath = "//*[@text='visibility-off']")
+    private WebElement bajaTeclado;
+
+
+
     @FindBy(xpath = "//*[@text='01']")
     private WebElement MesEnrolment;
     @FindBy(xpath = "//*[@resource-id='android:id/text1']")
@@ -79,6 +94,10 @@ public class loginAppOnepay {
     private WebElement RetornTBK;
     @FindBy(id = "credit_card_button")
     private WebElement addcredit_card_button;
+
+    @FindBy(id = "ok_btn")
+    private WebElement ContinuarAñadidaOK;
+
     @FindBy(id = "debit_card_button")
     private WebElement adddebit_card_button;
     @FindBy(id = "btnReject")
@@ -120,8 +139,13 @@ public class loginAppOnepay {
 
     public boolean ContiEnrolment() throws InterruptedException {
         try {
-            wait.until(ExpectedConditions.visibilityOf(ContinuarEnrolment));
-            ContinuarEnrolment.click();
+            List<WebElement> buttons = ApplicationLauncher.driverMobile.findElements(By.tagName("button"));
+            System.out.println("buttons.size" + buttons.size());
+            buttons.get(0).click();
+            //wait.until(ExpectedConditions.visibilityOf(tagBtnContinEnrolment));
+            //tagBtnContinEnrolment.click();
+            //wait.until(ExpectedConditions.visibilityOf(ContinEnrolment));
+            //ContinEnrolment.click();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -131,20 +155,31 @@ public class loginAppOnepay {
 
     public void AddCard() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(AceptarAddCard));
-        Thread.sleep(3500);
+        //Thread.sleep(3500);
         AceptarAddCard.click();
     }
 
     public void SeguirAddCard() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(SeguirAddCard));
-        Thread.sleep(3500);
+        //Thread.sleep(3500);
         SeguirAddCard.click();
     }
 
     public void RetornTBK() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(RetornTBK));
-        Thread.sleep(3500);
+        //Thread.sleep(3500);
         RetornTBK.click();
+    }
+
+    public boolean ContinuarAñadida() throws InterruptedException {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(ContinuarAñadidaOK));
+            ContinuarAñadidaOK.click();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 

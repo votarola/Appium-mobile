@@ -97,7 +97,7 @@ formatter.match({
   "location": "Def_WebpayNormalOnepay.quiero_realizar_un_pago_por_webpay_normal_con_Onepay()"
 });
 formatter.result({
-  "duration": 32197039006,
+  "duration": 22603255507,
   "status": "passed"
 });
 formatter.match({
@@ -114,14 +114,14 @@ formatter.match({
   "location": "Def_WebpayNormalOnepay.realizo_el_pago_con_el_y(String,String)"
 });
 formatter.result({
-  "duration": 88659795313,
-  "error_message": "java.lang.AssertionError: Continuar enrolamiento\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat definitions.Def_WebpayNormalOnepay.realizo_el_pago_con_el_y(Def_WebpayNormalOnepay.java:80)\r\n\tat ✽.When realizo el pago con el \"victor.otarola@tsoftglobal.com\" y \"Q1111111\"(pagoWebpayNormalOnepay.feature:6)\r\n",
-  "status": "failed"
+  "duration": 145257563052,
+  "status": "passed"
 });
 formatter.match({
   "location": "Def_WebpayNormalOnepay.se_realiza_el_pago_con_onepay_exitosamente_y_se_cierra_la_sesion_del_usuario()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 958922533,
+  "status": "passed"
 });
 });

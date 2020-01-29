@@ -66,6 +66,8 @@ public class Def_WebpayNormalOnepay {
         Thread.sleep(5000);
         ApplicationLauncher.pageLoginAppOnepay.cambiarContexto();
         Thread.sleep(3000);
+
+
         boolean sendpan = ApplicationLauncher.pageLoginAppOnepay.sendPAN(pan);
         Assert.assertTrue("Envio PAN", sendpan);
         boolean sendcvv = ApplicationLauncher.pageLoginAppOnepay.sendCVV(cvv);
@@ -73,18 +75,14 @@ public class Def_WebpayNormalOnepay {
         boolean ContiEnrolment = ApplicationLauncher.pageLoginAppOnepay.ContiEnrolment();
         Assert.assertTrue("Continuar enrolamiento", ContiEnrolment);
 
+        ApplicationLauncher.driverMobile.context("NATIVE_APP");
 
-        //ApplicationLauncher.pageLoginAppOnepay.sendPAN(pan);
-        //ApplicationLauncher.pageLoginAppOnepay.sendCVV(cvv);
-        Thread.sleep(3000);
-        //ApplicationLauncher.pageLoginAppOnepay.ContiEnrolment();
         ApplicationLauncher.pageLoginAppOnepay.AddCard();
         ApplicationLauncher.pageLoginAppOnepay.SeguirAddCard();
         ApplicationLauncher.pageLoginAppOnepay.RetornTBK();
+        ApplicationLauncher.pageLoginAppOnepay.ContinuarAñadida();
 
-
-
-        /*
+        Thread.sleep(3000);
         boolean btnpay = ApplicationLauncher.pageMain.clickBotonPago();
         Assert.assertTrue("Boton continuar en revisa los datos",btnpay);
 
@@ -97,7 +95,7 @@ public class Def_WebpayNormalOnepay {
 
         boolean irInicio = ApplicationLauncher.pageMain.clickIrInicio();
         Assert.assertTrue("Boton Ir la Inicio en estado de pago",irInicio);
-*/
+
     }
 
 

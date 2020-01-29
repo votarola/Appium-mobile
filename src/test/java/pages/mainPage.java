@@ -194,6 +194,7 @@ public class mainPage {
 
     public boolean clickBotonPago() {
         try {
+            wait.until(ExpectedConditions.visibilityOf(btnPay));
             btnPay.click();
             return true;
         } catch (Exception e) {
