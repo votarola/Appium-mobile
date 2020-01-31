@@ -9,7 +9,7 @@ import utils.ApplicationLauncher;
 
 import static utils.ApplicationLauncher.driverMobile;
 
-public class mainPage {
+public class homePage {
 
 
     /*----------------------Numeros de teclado para crear PIN--------------------------*/

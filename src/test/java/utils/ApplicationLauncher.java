@@ -15,8 +15,15 @@ public class ApplicationLauncher {
     public static loginAppTBK pageLoginAppTBK;
     public static PageWebPay pageWebPay;
     public static loginAppOnepay pageLoginAppOnepay;
-    public static mainPage pageMain;
+    public static homePage pageMain;
     public static PageWebpayNormal pageWebpayNormal;
+
+    public static tabHomePage pageHome;
+    public static tabPagosPage pagePagos;
+    public static tabTarjetasPage pageTarjetas;
+    public static tabMasPage pageMas;
+
+
 
     public static AppiumDriver driverMobile;
     public static WebDriver driverChrome;
@@ -35,7 +42,7 @@ public class ApplicationLauncher {
     public static void setUpAppium() throws MalformedURLException {
         driverMobile = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilitiesOnePay());
         pageLoginAppOnepay = PageFactory.initElements(driverMobile, loginAppOnepay.class);
-        pageMain = PageFactory.initElements(driverMobile, mainPage.class);
+        pageMain = PageFactory.initElements(driverMobile, homePage.class);
     }
 
 

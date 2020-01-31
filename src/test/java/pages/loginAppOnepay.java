@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.TouchAction;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -67,17 +68,6 @@ public class loginAppOnepay {
 
     @FindBy(xpath = "//*[@text='Continuar']")
     private WebElement ContinEnrolment;
-
-
-
-    @FindBy(tagName = "//*[@class='android.widget.Button']")
-    private WebElement tagBtnContinEnrolment;
-
-
-    @FindBy(xpath = "//*[@id='Cross']")
-    //@FindBy(xpath = "//*[@text='visibility-off']")
-    private WebElement bajaTeclado;
-
 
 
     @FindBy(xpath = "//*[@text='01']")
@@ -155,19 +145,16 @@ public class loginAppOnepay {
 
     public void AddCard() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(AceptarAddCard));
-        //Thread.sleep(3500);
         AceptarAddCard.click();
     }
 
     public void SeguirAddCard() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(SeguirAddCard));
-        //Thread.sleep(3500);
         SeguirAddCard.click();
     }
 
     public void RetornTBK() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(RetornTBK));
-        //Thread.sleep(3500);
         RetornTBK.click();
     }
 
@@ -181,7 +168,6 @@ public class loginAppOnepay {
             return false;
         }
     }
-
 
     public void ingresarContraseña(String pass) {
         try {
@@ -200,22 +186,6 @@ public class loginAppOnepay {
             e.printStackTrace();
         }
     }
-
-    public void cambiarContexto() throws InterruptedException {
-        //Thread.sleep(10000);
-        Set<String> contextName = null;
-        int c = 0;
-        while (c < 1) {
-            contextName = ApplicationLauncher.driverMobile.getContextHandles();
-            c = contextName.size();
-            System.out.println("c: " + c);
-        }
-        for (String s : contextName) {
-            ApplicationLauncher.driverMobile.context(s);
-            System.out.println("Contexto: " + s);
-        }
-    }
-
 
     public boolean clickbtnRegistro() throws InterruptedException {
         try {
@@ -291,6 +261,20 @@ public class loginAppOnepay {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public void cambiarContexto() throws InterruptedException {
+        Set<String> contextName = null;
+        int c = 0;
+        while (c < 1) {
+            contextName = ApplicationLauncher.driverMobile.getContextHandles();
+            c = contextName.size();
+            System.out.println("c: " + c);
+        }
+        for (String s : contextName) {
+            ApplicationLauncher.driverMobile.context(s);
+            System.out.println("Contexto: " + s);
         }
     }
 
