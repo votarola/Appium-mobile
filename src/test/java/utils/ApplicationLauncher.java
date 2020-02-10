@@ -18,10 +18,10 @@ public class ApplicationLauncher {
     public static homePage pageMain;
     public static PageWebpayNormal pageWebpayNormal;
 
-    public static tabHomePage pageHome;
-    public static tabPagosPage pagePagos;
-    public static tabTarjetasPage pageTarjetas;
-    public static tabMasPage pageMas;
+    public static PageTabHome pageHome;
+    public static PageTabPagos pagePagos;
+    public static PageTabTarjetas pageTarjetas;
+    public static PageTabMas pageMas;
 
 
 
@@ -45,6 +45,12 @@ public class ApplicationLauncher {
         pageMain = PageFactory.initElements(driverMobile, homePage.class);
     }
 
+    public static void setUpChromeMobile() throws MalformedURLException {
+        driverMobile = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilitiesChromeMobile());
+        pageLoginAppOnepay = PageFactory.initElements(driverMobile, loginAppOnepay.class);
+        pageMain = PageFactory.initElements(driverMobile, homePage.class);
+    }
+
 
     public static DesiredCapabilities capabilitiesAppTBK() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -63,6 +69,20 @@ public class ApplicationLauncher {
         return capabilities;
     }
 
+    public static DesiredCapabilities capabilitiesChromeMobile() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        capabilities.setCapability("automationName", "UiAutomator2");
+        capabilities.setCapability("deviceName", "93PAX09H3F");
+        capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("browserName", "Chrome");
+
+        capabilities.setCapability("chromedriverExecutable",
+                "C:/Users/Victor.Otarola/IdeaProjects/Appium-mobile/src/test/resources/driver/windows/chromedriver.exe");
+        capabilities.setCapability("noReset", true);
+        capabilities.setCapability("autoGrantPermissions", true);
+        return capabilities;
+    }
 
     public static DesiredCapabilities capabilitiesOnePay() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -70,7 +90,6 @@ public class ApplicationLauncher {
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("deviceName", "93PAX09H3F");
         capabilities.setCapability("platformName", "Android");
-
         capabilities.setCapability("appPackage", "cl.transbank.onepay");
         capabilities.setCapability("appActivity", "cl.transbank.onepay.ui.splash.EWSplashActivity_");
         capabilities.setCapability("chromedriverExecutable",

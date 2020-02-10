@@ -101,5 +101,7 @@ public class Def_WebPayOnepay {
 
         ApplicationLauncher.pageWebPay.clickbtnACK();
 
+
+//        https://web1qa.test.transbank.cl:8443/ewebpay/initReturnMnorm
     }
 }

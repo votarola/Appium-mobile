@@ -45,7 +45,7 @@ public class Def_WebpayNormalOnepay {
     @When("^realizo el pago con el \"([^\"]*)\" y \"([^\"]*)\"$")
     public void realizo_el_pago_con_el_y(String arg1, String pass) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        ApplicationLauncher.setUpAppium();
+        //ApplicationLauncher.setUpAppium();
         ApplicationLauncher.pageLoginAppOnepay.ingresarContraseña(pass);
         ApplicationLauncher.pageLoginAppOnepay.clickBtnIngresarConContraseña();
 
@@ -85,17 +85,17 @@ public class Def_WebpayNormalOnepay {
 
         Thread.sleep(3000);
         boolean btnpay = ApplicationLauncher.pageMain.clickBotonPago();
-        Assert.assertTrue("Boton continuar en revisa los datos",btnpay);
+        Assert.assertTrue("Boton continuar en revisa los datos", btnpay);
 
         Thread.sleep(5000);
         boolean pin = ApplicationLauncher.pageMain.creaPIN();
-        Assert.assertTrue("PIN en proceso de autorizacion de pago",pin);
+        Assert.assertTrue("PIN en proceso de autorizacion de pago", pin);
         Thread.sleep(1000);
         ApplicationLauncher.pageMain.clickAuthPay();
         Thread.sleep(5000);
 
         boolean irInicio = ApplicationLauncher.pageMain.clickIrInicio();
-        Assert.assertTrue("Boton Ir la Inicio en estado de pago",irInicio);
+        Assert.assertTrue("Boton Ir la Inicio en estado de pago", irInicio);
 
     }
 
