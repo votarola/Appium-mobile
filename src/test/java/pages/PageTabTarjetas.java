@@ -67,8 +67,7 @@ public class PageTabTarjetas {
     private WebElement cbxRedcompra;
 
 
-
-    WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverChrome, 50);
+    WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverMobile, 50);
 
     public void clickTabMas() {
         wait.until(ExpectedConditions.visibilityOf(tabTarjetas));

@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: utils.RunnerTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 2, Skipped: 1, Time elapsed: 54.345 sec <<< FAILURE!
+When realizo el pago con el "victor.otarola@tsoftglobal.com" y "Q1111111"(| "victor.otarola@tsoftglobal.com" | "Q1111111" |)  Time elapsed: 0.007 sec  <<< ERROR!
+java.lang.NullPointerException
+	at definitions.Def_WebpayNormalOnepay.realizo_el_pago_con_el_y(Def_WebpayNormalOnepay.java:49)
+	at ✽.When realizo el pago con el "victor.otarola@tsoftglobal.com" y "Q1111111"(pagoWebpayNormalOnepay.feature:6)
+
+| "victor.otarola@tsoftglobal.com" | "Q1111111" |  Time elapsed: 0.008 sec  <<< ERROR!
+java.lang.NullPointerException
+	at definitions.Def_WebpayNormalOnepay.realizo_el_pago_con_el_y(Def_WebpayNormalOnepay.java:49)
+	at ✽.When realizo el pago con el "victor.otarola@tsoftglobal.com" y "Q1111111"(pagoWebpayNormalOnepay.feature:6)
+

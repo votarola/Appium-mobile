@@ -61,9 +61,8 @@ public class PageTabHome {
     @FindBy(xpath = "//*[@text='Escanear código']")
     private WebElement backEscanerQR;
 
+    WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverMobile, 50);
 
-
-    WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverChrome, 50);
 
     public boolean clickultimoPagoCard() {
         try {
