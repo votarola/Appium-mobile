@@ -33,7 +33,7 @@ public class loginAppTBK {
     private WebElement xBtn;
 
     @FindBy (xpath = "/html/body/ion-app/ng-component/ion-nav/page-login/ion-content/div[2]/ion-grid/ion-row[2]/form/ion-row[5]/ion-col/button")
-    private WebElement solicitarContraseÃ±a;
+    private WebElement solicitarContraseña;
 
     @FindBy (xpath = "//*[@id='btnSend']")
     private WebElement btnSend;
@@ -66,9 +66,9 @@ public class loginAppTBK {
         xBtn.click();
     }
 
-    public void solicitarContraseÃ±a(String dni){
-        wait.until(ExpectedConditions.visibilityOf(solicitarContraseÃ±a));
-        solicitarContraseÃ±a.click();
+    public void solicitarContraseña(String dni){
+        wait.until(ExpectedConditions.visibilityOf(solicitarContraseña));
+        solicitarContraseña.click();
         wait.until(ExpectedConditions.visibilityOf(btnSend));
         wait.until(ExpectedConditions.visibilityOf(rut));
         rut.click();

@@ -49,10 +49,10 @@ public class PageTabMas {
             private WebElement modificarDatos;
 
         @FindBy(id = "btnUpdatePassword")
-        private WebElement cambiaContraseÃ±a;
+        private WebElement cambiaContraseña;
 
         @FindBy(id = "btnRestorePassword")
-        private WebElement restableceContraseÃ±a;
+        private WebElement restableceContraseña;
 
 
     @FindBy(id = "pin_layout")
@@ -71,11 +71,7 @@ public class PageTabMas {
 
 
 
-
-
-
-    WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverChrome, 50);
-
+    WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverMobile, 50);
 
     public void clickTabMas() {
         wait.until(ExpectedConditions.visibilityOf(tabMas));

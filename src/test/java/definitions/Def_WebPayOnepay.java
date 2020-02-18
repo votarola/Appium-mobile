@@ -68,8 +68,8 @@ public class Def_WebPayOnepay {
     @When("^ingreso los montos y pago con onepay \"([^\"]*)\" y \"([^\"]*)\"$")
     public void ingreso_los_montos_y_pago_con_onepay_y(String arg1, String pass) throws Throwable {
         ApplicationLauncher.setUpAppium();
-        ApplicationLauncher.pageLoginAppOnepay.ingresarContraseÃ±a(pass);
-        ApplicationLauncher.pageLoginAppOnepay.clickBtnIngresarConContraseÃ±a();
+        ApplicationLauncher.pageLoginAppOnepay.ingresarContraseña(pass);
+        ApplicationLauncher.pageLoginAppOnepay.clickBtnIngresarConContraseña();
 
         ApplicationLauncher.pageMain.clickIngresarCodigo();
         ApplicationLauncher.pageMain.ingresarCodigo(codigoOnepay.split(""));

@@ -61,14 +61,13 @@ public class PageTabTarjetas {
     private WebElement RetornTBK;
 
     @FindBy(id = "ok_btn")
-    private WebElement ContinuarAÃ±adidaOK;
+    private WebElement ContinuarAñadidaOK;
 
     @FindBy(xpath = "//*[@text='Seleccione banco']")
     private WebElement cbxRedcompra;
 
 
-
-    WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverChrome, 50);
+    WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverMobile, 50);
 
     public void clickTabMas() {
         wait.until(ExpectedConditions.visibilityOf(tabTarjetas));
@@ -139,10 +138,10 @@ public class PageTabTarjetas {
         RetornTBK.click();
     }
 
-    public boolean ContinuarAÃ±adida() throws InterruptedException {
+    public boolean ContinuarAñadida() throws InterruptedException {
         try {
-            wait.until(ExpectedConditions.visibilityOf(ContinuarAÃ±adidaOK));
-            ContinuarAÃ±adidaOK.click();
+            wait.until(ExpectedConditions.visibilityOf(ContinuarAñadidaOK));
+            ContinuarAñadidaOK.click();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

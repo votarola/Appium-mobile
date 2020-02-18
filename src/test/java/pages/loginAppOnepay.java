@@ -58,7 +58,7 @@ public class loginAppOnepay {
     @FindBy(id = "et_password")
     private WebElement inputPass;
     @FindBy(id = "login_password")
-    private WebElement btnIngresarConContraseña;
+    private WebElement btnIngresarConContrase�a;
     @FindBy(xpath = "//*[@text='Digitar código de compra']")
     private WebElement ingresarCodigo;
     @FindBy(xpath = "//*[@id='visa-card-show']")
@@ -86,7 +86,7 @@ public class loginAppOnepay {
     private WebElement addcredit_card_button;
 
     @FindBy(id = "ok_btn")
-    private WebElement ContinuarAñadidaOK;
+    private WebElement ContinuarA�adidaOK;
 
     @FindBy(id = "debit_card_button")
     private WebElement adddebit_card_button;
@@ -158,10 +158,10 @@ public class loginAppOnepay {
         RetornTBK.click();
     }
 
-    public boolean ContinuarAñadida() throws InterruptedException {
+    public boolean ContinuarA�adida() throws InterruptedException {
         try {
-            wait.until(ExpectedConditions.visibilityOf(ContinuarAñadidaOK));
-            ContinuarAñadidaOK.click();
+            wait.until(ExpectedConditions.visibilityOf(ContinuarA�adidaOK));
+            ContinuarA�adidaOK.click();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -169,7 +169,7 @@ public class loginAppOnepay {
         }
     }
 
-    public void ingresarContraseña(String pass) {
+    public void ingresarContrase�a(String pass) {
         try {
             wait.until(ExpectedConditions.visibilityOf(inputPass));
             inputPass.sendKeys(pass);
@@ -178,10 +178,10 @@ public class loginAppOnepay {
         }
     }
 
-    public void clickBtnIngresarConContraseña() {
+    public void clickBtnIngresarConContrase�a() {
         try {
-            wait.until(ExpectedConditions.visibilityOf(btnIngresarConContraseña));
-            btnIngresarConContraseña.click();
+            wait.until(ExpectedConditions.visibilityOf(btnIngresarConContrase�a));
+            btnIngresarConContrase�a.click();
         } catch (Exception e) {
             e.printStackTrace();
         }

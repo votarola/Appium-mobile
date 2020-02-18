@@ -18,7 +18,7 @@ public class Def_AppTBK {
         // Write code here that turns the phrase above into concrete actions
         ApplicationLauncher.pageLoginAppTBK.cambiarContexto();
         ApplicationLauncher.pageLoginAppTBK.verTyC();
-        ApplicationLauncher.pageLoginAppTBK.solicitarContraseÃ±a(rut);
+        ApplicationLauncher.pageLoginAppTBK.solicitarContraseña(rut);
         Thread.sleep(5000);
         ApplicationLauncher.pageLoginAppTBK.ingresarRut(rut);
         ApplicationLauncher.pageLoginAppTBK.ingresarPass(pass);

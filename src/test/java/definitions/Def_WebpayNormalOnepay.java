@@ -46,8 +46,8 @@ public class Def_WebpayNormalOnepay {
     public void realizo_el_pago_con_el_y(String arg1, String pass) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         //ApplicationLauncher.setUpAppium();
-        ApplicationLauncher.pageLoginAppOnepay.ingresarContraseÃ±a(pass);
-        ApplicationLauncher.pageLoginAppOnepay.clickBtnIngresarConContraseÃ±a();
+        ApplicationLauncher.pageLoginAppOnepay.ingresarContraseña(pass);
+        ApplicationLauncher.pageLoginAppOnepay.clickBtnIngresarConContraseña();
 
         ApplicationLauncher.pageMain.clickIngresarCodigo();
         ApplicationLauncher.pageMain.ingresarCodigo(codigoOnepay.split(""));
@@ -81,7 +81,7 @@ public class Def_WebpayNormalOnepay {
         ApplicationLauncher.pageLoginAppOnepay.AddCard();
         ApplicationLauncher.pageLoginAppOnepay.SeguirAddCard();
         ApplicationLauncher.pageLoginAppOnepay.RetornTBK();
-        ApplicationLauncher.pageLoginAppOnepay.ContinuarAÃ±adida();
+        ApplicationLauncher.pageLoginAppOnepay.ContinuarAñadida();
 
         Thread.sleep(3000);
         boolean btnpay = ApplicationLauncher.pageMain.clickBotonPago();
