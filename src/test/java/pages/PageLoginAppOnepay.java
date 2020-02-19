@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 
-public class loginAppOnepay {
+public class PageLoginAppOnepay {
     public static WebDriver driver;
     WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverMobile, 50);
     @FindBy(id = "ly_ingreso")
@@ -199,6 +199,7 @@ public class loginAppOnepay {
 
     public boolean clickbtnIngreso() throws InterruptedException {
         try {
+        	wait.until(ExpectedConditions.visibilityOf(btningreso));
             btningreso.click();
             return true;
         } catch (Exception e) {
@@ -227,6 +228,7 @@ public class loginAppOnepay {
     }
 
     public void creaPIN() throws InterruptedException {
+    	wait.until(ExpectedConditions.visibilityOf(key9));
         key9.click();
         Thread.sleep(1000);
         key6.click();

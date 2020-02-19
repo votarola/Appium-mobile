@@ -3,7 +3,7 @@ package utils;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
-import pages.loginAppOnepay;
+import pages.PageLoginAppOnepay;
 
 
 import java.net.MalformedURLException;
@@ -11,14 +11,14 @@ import java.net.URL;
 
 public class ApplicationLauncherOnepay {
 
-    public static loginAppOnepay pageLoginAppOnepay;
+    public static PageLoginAppOnepay pageLoginAppOnepay;
 
     public static AppiumDriver driverMobile;
 
     public static void setUp() throws MalformedURLException {
 
         driverMobile = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities());
-        pageLoginAppOnepay = PageFactory.initElements(driverMobile, loginAppOnepay.class);
+        pageLoginAppOnepay = PageFactory.initElements(driverMobile, PageLoginAppOnepay.class);
     }
 
 

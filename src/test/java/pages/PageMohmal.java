@@ -7,34 +7,41 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ApplicationLauncher;
 
+
 public class PageMohmal {
     public static WebDriver driver;
 
-    @FindBy(id = "choose")
+    @FindBy(id ="choose")
     private WebElement EscogerEmail;
-
-    @FindBy(xpath = "//*[@id='enterEmail']/div[1]/input")
+      
+    @FindBy(xpath ="//*[@id='enterEmail']/div[1]/input")
     private WebElement InputEmail;
 
-    @FindBy(id = "next")
+    @FindBy(id ="next")
     private WebElement Next;
 
-    @FindBy(id = "create")
+    @FindBy(id ="create")
     private WebElement CreaEmail;
 
-    @FindBy(xpath = "//*[@id='refresh']/i")
+    @FindBy(xpath ="//*[@id='refresh']/i")
     private WebElement RefreshEmail;
+
 
 
 
     WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverChrome, 50);
 
-    //ApplicationLauncher.setUpChrome();
-    //ApplicationLauncher.driverChrome.get("https://www.mohmal.com/es");
-
-    public void escogerEmail() throws InterruptedException {
-        wait.until(ExpectedConditions.visibilityOf(EscogerEmail));
-        EscogerEmail.click();
+    
+    
+    public boolean escogerEmail(){
+        try{
+            wait.until(ExpectedConditions.visibilityOf(EscogerEmail));
+            EscogerEmail.click();
+            return true;
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
 
