@@ -8,4 +8,4 @@ Feature: Login
 
     Examples:
       | email                             | contrasena |
-      | "victor.otarola@tsoftglobal.com"  |"Q1111111"|
+      | "v.otarolamorales@gmail.com"  	  |"Q1111111"|

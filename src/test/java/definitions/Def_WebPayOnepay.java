@@ -7,7 +7,6 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ApplicationLauncher;
-import utils.ApplicationLauncherOnepay;
 import utils.UtilsDriver;
 
 public class Def_WebPayOnepay {

@@ -8,83 +8,88 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ApplicationLauncher;
 
 import java.util.List;
+import java.util.Set;
 
 public class PageTabTarjetas {
-
-    @FindBy(id = "action_card")
-    private WebElement tabTarjetas;
-
-    @FindBy(id = "add_card_button_action")
-    private WebElement btnAddCard;
-
-    @FindBy(id = "credit_card_button")
-    private WebElement addcredit_card_button;
-
-    @FindBy(id = "debit_card_button")
-    private WebElement adddebit_card_button;
-
+	
+//-------------------------------AGREGAR TARJETAS Y MEDIOS DE PAGO-----------------------	
+	@FindBy(id = "txtAddCards")
+	private WebElement addCard;
+	
+	@FindBy(id = "add_card_button_action")
+	private WebElement addCardST;
+	  
+	@FindBy(id = "action_card")
+	private WebElement tabPagos;
+	    
+	@FindBy(id = "credit_card_button")
+	private WebElement addCredit;
+	    
+	@FindBy(id = "debit_card_button")
+	private WebElement addDebit;
+	    
+	@FindBy(id = "prepaid_card_button")
+	private WebElement addPrepaid;
+	    
     @FindBy(xpath = "//*[@text='Medios de pago']")
-    private WebElement backMediosPago;
+    private WebElement backPaymentMethods;
+    
+//-------------------------------AGREGAR TARJETA CREDITO-----------------------
+    @FindBy(xpath ="//*[@id='card-number']")
+    private WebElement cardNumber;
 
-//-------------------------------MODULO SIN TARJETAS-----------------------
-    @FindBy(id = "card_dialog_add_card")
-    private WebElement addCard;
-
-    @FindBy(id = "reject_tv")
-    private WebElement RejectPagoModal;
-
-    @FindBy(id = "close_dialog_image_view")
-    private WebElement ClosePagoModal;
-
-//-------------------------------MODULO SIN TARJETAS-----------------------
-
-
-    @FindBy(id = "btnReject")
-    private WebElement btnRejectMediosPago;
-
-    @FindBy(xpath = "//*[@id='visa-card-show']")
-    private WebElement PAN;
-
-    @FindBy(xpath = "//*[@id='password-invalid']")
-    private WebElement CVV;
-
-    @FindBy(xpath = "//*[@text='Continuar']")
-    private WebElement ContinEnrolment;
-
+    @FindBy(xpath ="//*[@id='card-exp']")
+    private WebElement cardExp;
+    
+    @FindBy(xpath ="//*[@id='card-cvv']")
+    private WebElement cardCVV;
+    
+    @FindBy(xpath = "//*[@text='Inscribir tarjeta']")
+    private WebElement initIncription;
+      
     @FindBy(xpath = "//*[@text='Aceptar']")
-    private WebElement AceptarAddCard;
-
+    private WebElement ContinEnrolment;  
+  
     @FindBy(xpath = "//*[@text='Seguir (setResultAut)']")
     private WebElement SeguirAddCard;
-
+        
     @FindBy(xpath = "//*[@text='Seguir (retorno a Transbank)']")
     private WebElement RetornTBK;
-
+      
     @FindBy(id = "ok_btn")
-    private WebElement ContinuarAñadidaOK;
+    private WebElement ContinuarAddOK;
 
+    
     @FindBy(xpath = "//*[@text='Seleccione banco']")
     private WebElement cbxRedcompra;
 
 
     WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverMobile, 50);
 
-    public void clickTabMas() {
-        wait.until(ExpectedConditions.visibilityOf(tabTarjetas));
-        tabTarjetas.click();
+    
+    public void clickAddCardST() {
+        wait.until(ExpectedConditions.visibilityOf(addCardST));
+        addCardST.click();
     }
+    
 
+    public void clickAddCard() {
+        wait.until(ExpectedConditions.visibilityOf(addCard));
+        addCard.click();
+    }
+    
     public void clickAddCardCredit() {
-        wait.until(ExpectedConditions.visibilityOf(addcredit_card_button));
-        addcredit_card_button.click();
+        wait.until(ExpectedConditions.visibilityOf(addCredit));
+        addCredit.click();
     }
 
+        
     public boolean sendPAN(String pan) throws InterruptedException {
         try {
-            wait.until(ExpectedConditions.visibilityOf(PAN));
-            PAN.click();
+            wait.until(ExpectedConditions.visibilityOf(cardNumber));
+            cardNumber.click();
             Thread.sleep(1500);
-            PAN.sendKeys(pan);
+            cardNumber.sendKeys(pan);
             Thread.sleep(2000);
             return true;
         } catch (Exception e) {
@@ -92,13 +97,27 @@ public class PageTabTarjetas {
             return false;
         }
     }
-
+    
+    public boolean sendExpirationDate(String expDate) throws InterruptedException {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(cardExp));
+            Thread.sleep(1500);
+            cardExp.click();
+            cardExp.sendKeys(expDate);
+            ApplicationLauncher.driverMobile.hideKeyboard();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     public boolean sendCVV(String cvv) throws InterruptedException {
         try {
-            wait.until(ExpectedConditions.visibilityOf(CVV));
+            wait.until(ExpectedConditions.visibilityOf(cardCVV));
             Thread.sleep(1500);
-            CVV.click();
-            CVV.sendKeys(cvv);
+            cardCVV.click();
+            cardCVV.sendKeys(cvv);
             ApplicationLauncher.driverMobile.hideKeyboard();
             return true;
         } catch (Exception e) {
@@ -122,15 +141,30 @@ public class PageTabTarjetas {
             return false;
         }
     }
+    
+    public void cambiarContexto() throws InterruptedException {
+        Set<String> contextName = null;
+        int c = 0;
+        while (c < 1) {
+            contextName = ApplicationLauncher.driverMobile.getContextHandles();
+            c = contextName.size();
+            System.out.println("c: " + c);
+        }
+        for (String s : contextName) {
+            ApplicationLauncher.driverMobile.context(s);
+            System.out.println("Contexto: " + s);
+        }
+    }
+    
 
     public void AddCard() throws InterruptedException {
-        wait.until(ExpectedConditions.visibilityOf(AceptarAddCard));
-        AceptarAddCard.click();
+        wait.until(ExpectedConditions.visibilityOf(initIncription));
+        initIncription.click();
     }
 
     public void SeguirAddCard() throws InterruptedException {
-        wait.until(ExpectedConditions.visibilityOf(SeguirAddCard));
-        SeguirAddCard.click();
+        wait.until(ExpectedConditions.visibilityOf(ContinEnrolment));
+        ContinEnrolment.click();
     }
 
     public void RetornTBK() throws InterruptedException {
@@ -138,18 +172,19 @@ public class PageTabTarjetas {
         RetornTBK.click();
     }
 
-    public boolean ContinuarAñadida() throws InterruptedException {
+    public boolean ContinuaraddOK() throws InterruptedException {
         try {
-            wait.until(ExpectedConditions.visibilityOf(ContinuarAñadidaOK));
-            ContinuarAñadidaOK.click();
+            wait.until(ExpectedConditions.visibilityOf(ContinuarAddOK));
+            ContinuarAddOK.click();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
-
-
-
-
 }
+
+
+
+    
+

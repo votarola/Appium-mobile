@@ -15,20 +15,44 @@ import java.util.Set;
 
 
 public class PageLoginAppOnepay {
+	
     public static WebDriver driver;
+    
     WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverMobile, 50);
-    @FindBy(id = "ly_ingreso")
+    
+    @FindBy(id = "ry_login")
     private WebElement btningreso;
-    @FindBy(id = "ly_registro")
-    private WebElement btnregistro;
-    @FindBy(xpath = ("//*[@text='Ingresar']"))
-    private WebElement btnIngresar;
-    @FindBy(id = "et_user_name")
+
+    @FindBy(id = "et_user_name") 
     private WebElement sendEmail;
+    
     @FindBy(id = "et_password")
     private WebElement sendPass;
+    
     @FindBy(id = "txtForgotPass")
     private WebElement forgotPass;
+    
+    @FindBy(id = ("tv_login"))
+    private WebElement optionLogin;
+    
+    
+    @FindBy(id = ("tv_register"))
+    private WebElement optionRegister;
+    
+    @FindBy(id = ("etName"))
+    private WebElement addName;
+    
+    @FindBy(id = ("etLastName"))
+    private WebElement addLastName;
+    
+    @FindBy(id = ("etEmail"))
+    private WebElement addEmail;
+        
+    @FindBy(id = "ry_registro")
+    private WebElement btnregistro;
+    
+    
+
     /*----------------------Numeros de teclado para crear PIN--------------------------*/
     @FindBy(id = "lyKey1")
     private WebElement key1;
@@ -210,7 +234,7 @@ public class PageLoginAppOnepay {
 
     public boolean btnIngresoUser() throws InterruptedException {
         try {
-            btnIngresar.click();
+        	btningreso.click();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -219,7 +243,7 @@ public class PageLoginAppOnepay {
     }
 
     public void ingresaEmailPass(String email, String pass) {
-        wait.until(ExpectedConditions.visibilityOf(forgotPass));
+       // wait.until(ExpectedConditions.visibilityOf(forgotPass));
         sendEmail.clear();
         sendEmail.sendKeys(email);
         sendPass.clear();

@@ -12,9 +12,9 @@ import java.net.URL;
 
 public class ApplicationLauncher {
 
-    public static loginAppTBK pageLoginAppTBK;
     public static PageWebPay pageWebPay;
     public static PageLoginAppOnepay pageLoginAppOnepay;
+    public static PageLogin pageLogin;
     public static homePage pageMain;
     public static PageWebpayNormal pageWebpayNormal;
     public static PageTabHome pageHome;
@@ -45,8 +45,11 @@ public class ApplicationLauncher {
 
     public static void setUpAppium() throws MalformedURLException {
         driverMobile = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilitiesOnePay());
-        pageLoginAppOnepay = PageFactory.initElements(driverMobile, PageLoginAppOnepay.class);
-        pageMain = PageFactory.initElements(driverMobile, homePage.class);
+      //  "http://0.0.0.0:4723/wd/hub"   "http://127.0.0.1:4723/wd/hub"
+        
+        
+        pageLogin = PageFactory.initElements(driverMobile, PageLogin.class);
+        //pageMain = PageFactory.initElements(driverMobile, homePage.class);
         pageHome = PageFactory.initElements(driverMobile, PageTabHome.class);
         pageMas = PageFactory.initElements(driverMobile, PageTabMas.class);
         pagePagos = PageFactory.initElements(driverMobile, PageTabPagos.class);
@@ -57,38 +60,22 @@ public class ApplicationLauncher {
 
     public static void setUpChromeMobile() throws MalformedURLException {
         driverMobile = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilitiesChromeMobile());
-        pageLoginAppOnepay = PageFactory.initElements(driverMobile, PageLoginAppOnepay.class);
+        pageLogin = PageFactory.initElements(driverMobile, PageLogin.class);
+        //        pageLoginAppOnepay = PageFactory.initElements(driverMobile, PageLoginAppOnepay.class);
         pageMain = PageFactory.initElements(driverMobile, homePage.class);
     }
 
-
-    public static DesiredCapabilities capabilitiesAppTBK() {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("deviceName", "BPN0218625007244");
-        capabilities.setCapability("platformName", "Android");
-
-        capabilities.setCapability("appPackage", "cl.transbank.apppyme");
-        capabilities.setCapability("appActivity", "cl.transbank.apppyme.MainActivity");
-        capabilities.setCapability("chromedriverExecutable",
-                "C:/Users/Victor.Otarola/IdeaProjects/Appium-mobile/src/test/resources/driver/windows/chromedriver.exe");
-        capabilities.setCapability("noReset", true);
-        capabilities.setCapability("autoGrantPermissions", true);
-        capabilities.setCapability("autoGrantPermissions", true);
-        return capabilities;
-    }
 
     public static DesiredCapabilities capabilitiesChromeMobile() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("deviceName", "93PAX09H3F");
+        capabilities.setCapability("deviceName", "fb5bb49c");
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("browserName", "Chrome");
 
         capabilities.setCapability("chromedriverExecutable",
-                "C:/Users/Victor.Otarola/IdeaProjects/Appium-mobile/src/test/resources/driver/windows/chromedriver.exe");
+                "C:/Users/Victor.Otarola/Documents/Appium-mobile/src/test/resources/driver/windows/chromedriver.exe");
         capabilities.setCapability("noReset", true);
         capabilities.setCapability("autoGrantPermissions", true);
         return capabilities;
@@ -98,12 +85,16 @@ public class ApplicationLauncher {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("deviceName", "93PAX09H3F");
+        capabilities.setCapability("deviceName", "fb5bb49c");//R58MA02X82D - fb5bb49c
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("appPackage", "cl.transbank.onepay");
-        capabilities.setCapability("appActivity", "cl.transbank.onepay.ui.splash.EWSplashActivity_");
+        capabilities.setCapability("appPackage", "cl.transbank.onepay.testqa");
+        capabilities.setCapability("appActivity", "cl.transbank.onepay.activities.splash.SplashActivity"); 
+      //"cl.transbank.onepay.ui.splash.SplashActivity"  	//EWSplashActivity_ - SplashActivity
+        
         capabilities.setCapability("chromedriverExecutable",
-                "C:/Users/Victor.Otarola/IdeaProjects/Appium-mobile/src/test/resources/driver/windows/chromedriver.exe");
+        		"C:/Users/Victor.Otarola/Documents/Appium-mobile/src/test/resources/driver/windows/chromedriver.exe");      
+        //"C:/Users/Victor.Otarola/IdeaProjects/Appium-mobile/src/test/resources/driver/windows/chromedriver.exe");
+                  
         capabilities.setCapability("noReset", true);
         capabilities.setCapability("autoGrantPermissions", true);
         capabilities.setCapability("autoGrantPermissions", true);
@@ -111,8 +102,8 @@ public class ApplicationLauncher {
     }
 
     public static void setOff() {
-        // driverChrome.quit();
-        //driverMobile.quit();
+        driverChrome.quit();
+        driverMobile.quit();
     }
 }
 

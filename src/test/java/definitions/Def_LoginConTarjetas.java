@@ -30,7 +30,6 @@ public class Def_LoginConTarjetas {
         ApplicationLauncher.pageMohmal.next();
         ApplicationLauncher.pageMohmal.crearEmail();
 
-		
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +38,6 @@ public class Def_LoginConTarjetas {
 	@When("^con el \"([^\"]*)\" y \"([^\"]*)\" tenga tarjetas enroladas en la cuenta$")
 	public void con_el_y_tenga_tarjetas_enroladas_en_la_cuenta(String email, String pass) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-
 
 		ApplicationLauncher.setUpAppium();
         WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverMobile, 15);
