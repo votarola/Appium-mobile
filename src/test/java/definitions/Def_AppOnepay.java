@@ -12,6 +12,7 @@ public class Def_AppOnepay {
     String expDate = "1123";
     String pan = "36000000001006";
     String cvv = "322";
+    String pass = "Q1111111";
     
     
 
@@ -19,7 +20,7 @@ public class Def_AppOnepay {
     public void quiero_ingresar_a_Onepay() throws Throwable {
         ApplicationLauncher.setUpAppium();
         Thread.sleep(5000);
-      
+       	//ApplicationLauncher.pagePreLogin.ingresaPass(pass);
  
         // Write code here that turns the phrase above into concrete actions
 
@@ -29,6 +30,9 @@ public class Def_AppOnepay {
     public void ingreso_a_la_app_con_mi_y(String email, String contra) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
 
+
+    	
+        
     	ApplicationLauncher.pageLogin.ingresaEmailPass(email,contra);
        //	ApplicationLauncher.pageLogin.ClickIngreso();
        	

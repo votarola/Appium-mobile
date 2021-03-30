@@ -97,7 +97,7 @@ formatter.match({
   "location": "Def_AppOnepay.quiero_ingresar_a_Onepay()"
 });
 formatter.result({
-  "duration": 17377970142,
+  "duration": 16927349740,
   "status": "passed"
 });
 formatter.match({
@@ -114,15 +114,15 @@ formatter.match({
   "location": "Def_AppOnepay.ingreso_a_la_app_con_mi_y(String,String)"
 });
 formatter.result({
-  "duration": 38279561720,
+  "duration": 28854303020,
   "status": "passed"
 });
 formatter.match({
   "location": "Def_AppOnepay.ingreso_a_onepay()"
 });
 formatter.result({
-  "duration": 56000635090,
-  "error_message": "java.lang.AssertionError: Envio PAN\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat definitions.Def_AppOnepay.ingreso_a_onepay(Def_AppOnepay.java:81)\r\n\tat ✽.Then ingreso a onepay(LoginOnepay.feature:7)\r\n",
+  "duration": 55878419840,
+  "error_message": "java.lang.AssertionError: Envio PAN\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat definitions.Def_AppOnepay.ingreso_a_onepay(Def_AppOnepay.java:85)\r\n\tat ✽.Then ingreso a onepay(LoginOnepay.feature:7)\r\n",
   "status": "failed"
 });
 });

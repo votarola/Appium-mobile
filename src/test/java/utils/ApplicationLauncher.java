@@ -15,6 +15,7 @@ public class ApplicationLauncher {
     public static PageWebPay pageWebPay;
     public static PageLoginAppOnepay pageLoginAppOnepay;
     public static PageLogin pageLogin;
+    public static PagePreLoginContrasena pagePreLogin;
     public static homePage pageMain;
     public static PageWebpayNormal pageWebpayNormal;
     public static PageTabHome pageHome;
