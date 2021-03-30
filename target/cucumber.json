@@ -4,43 +4,44 @@
     "elements": [
       {
         "line": 11,
-        "name": "Login Onepay",
+        "name": "PagoWebPayNormal",
         "description": "",
-        "id": "login;login-onepay;;2",
+        "id": "pagowebpaynormal-con-onepay;pagowebpaynormal;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 16833490406,
+              "duration": 28511961767,
               "status": "passed"
             },
             "line": 5,
-            "name": "quiero ingresar a Onepay",
+            "name": "quiero realizar un pago por webpay normal con Onepay",
             "match": {
-              "location": "Def_AppOnepay.quiero_ingresar_a_Onepay()"
+              "location": "Def_WebpayNormalOnepay.quiero_realizar_un_pago_por_webpay_normal_con_Onepay()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 29046625526,
-              "status": "passed"
+              "duration": 4458477,
+              "error_message": "java.lang.NullPointerException\r\n\tat definitions.Def_WebpayNormalOnepay.realizo_el_pago_con_el_y(Def_WebpayNormalOnepay.java:49)\r\n\tat ✽.When realizo el pago con el \"victor.otarola@tsoftglobal.com\" y \"Q1111111\"(pagoWebpayNormalOnepay.feature:6)\r\n",
+              "status": "failed"
             },
             "line": 6,
-            "name": "ingreso a la app con mi \"v.otarolamorales@gmail.com\" y \"Q1111111\"",
+            "name": "realizo el pago con el \"victor.otarola@tsoftglobal.com\" y \"Q1111111\"",
             "match": {
               "arguments": [
                 {
-                  "val": "v.otarolamorales@gmail.com",
-                  "offset": 25
+                  "val": "victor.otarola@tsoftglobal.com",
+                  "offset": 24
                 },
                 {
                   "val": "Q1111111",
-                  "offset": 56
+                  "offset": 59
                 }
               ],
-              "location": "Def_AppOnepay.ingreso_a_la_app_con_mi_y(String,String)"
+              "location": "Def_WebpayNormalOnepay.realizo_el_pago_con_el_y(String,String)"
             },
             "matchedColumns": [
               0,
@@ -50,14 +51,12 @@
           },
           {
             "result": {
-              "duration": 302442,
-              "error_message": "java.lang.NullPointerException\r\n\tat utils.ApplicationLauncher.setOff(ApplicationLauncher.java:106)\r\n\tat definitions.Def_AppOnepay.ingreso_a_onepay(Def_AppOnepay.java:67)\r\n\tat ✽.Then ingreso a onepay(LoginOnepay.feature:7)\r\n",
-              "status": "failed"
+              "status": "skipped"
             },
             "line": 7,
-            "name": "ingreso a onepay",
+            "name": "se realiza el pago con onepay exitosamente y se cierra la sesion del usuario",
             "match": {
-              "location": "Def_AppOnepay.ingreso_a_onepay()"
+              "location": "Def_WebpayNormalOnepay.se_realiza_el_pago_con_onepay_exitosamente_y_se_cierra_la_sesion_del_usuario()"
             },
             "keyword": "Then "
           }
@@ -65,20 +64,20 @@
         "tags": [
           {
             "line": 1,
-            "name": "@LoginOnepay"
+            "name": "@PagoWebpayNormalOnepay"
           }
         ]
       }
     ],
-    "name": "Login",
+    "name": "PagoWebPayNormal con Onepay",
     "description": "",
-    "id": "login",
+    "id": "pagowebpaynormal-con-onepay",
     "keyword": "Feature",
-    "uri": "LoginOnepay.feature",
+    "uri": "pagoWebpayNormalOnepay.feature",
     "tags": [
       {
         "line": 1,
-        "name": "@LoginOnepay"
+        "name": "@PagoWebpayNormalOnepay"
       }
     ]
   }
