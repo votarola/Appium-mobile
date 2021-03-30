@@ -23,14 +23,26 @@ public class PageWebpayNormal {
     @FindBy(id = "ewebpayTestForm:j_idt33")
     private WebElement initTransaction;
 
-    @FindBy(xpath = "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-payment/a[3]")
+  //  @FindBy(xpath = "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-payment/a[3]")
+  //  private WebElement btnPagoOnepay;
+   
+    @FindBy (xpath = "/html/body/app-root/app-home/main-panel/main/section/left-panel/div/app-payment-select/div/div/button[1]")
     private WebElement btnPagoOnepay;
+    
+ 
 
     @FindBy(xpath = "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-onepay/div/div[2]/img" )
     private WebElement qr;
 
-    @FindBy(xpath = "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-onepay/div/div[2]/ul")
+  //  @FindBy(xpath = "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-onepay/div/div[2]/ul")
+  //  private WebElement codigoPagoOnepay;
+
+    @FindBy(xpath = "/html/body/app-root/app-home/main-panel/main/section/right-panel/app-onepay/div[2]/div/div[1]/p/strong")
     private WebElement codigoPagoOnepay;
+    
+    
+       
+    
 
     @FindBy(xpath = ("//*[@id=\"j_idt49:j_idt54\"]"))
     private WebElement btnACK;
