@@ -66,13 +66,17 @@ public class PageTabTarjetas {
 
     WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverMobile, 50);
 
+    public void clicktabPagos() {
+        wait.until(ExpectedConditions.visibilityOf(tabPagos));
+        tabPagos.click();
+    }
+    
     
     public void clickAddCardST() {
         wait.until(ExpectedConditions.visibilityOf(addCardST));
         addCardST.click();
     }
     
-
     public void clickAddCard() {
         wait.until(ExpectedConditions.visibilityOf(addCard));
         addCard.click();
@@ -82,7 +86,6 @@ public class PageTabTarjetas {
         wait.until(ExpectedConditions.visibilityOf(addCredit));
         addCredit.click();
     }
-
         
     public boolean sendPAN(String pan) throws InterruptedException {
         try {
@@ -157,15 +160,24 @@ public class PageTabTarjetas {
     }
     
 
-    public void AddCard() throws InterruptedException {
+    public void initIncription() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(initIncription));
         initIncription.click();
     }
 
-    public void SeguirAddCard() throws InterruptedException {
+    public void ContinEnrolment() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(ContinEnrolment));
         ContinEnrolment.click();
     }
+    
+    
+    public void SeguirAddCard() throws InterruptedException {
+        wait.until(ExpectedConditions.visibilityOf(SeguirAddCard));
+        SeguirAddCard.click();
+    }
+
+    
+
 
     public void RetornTBK() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(RetornTBK));

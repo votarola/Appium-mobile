@@ -55,15 +55,17 @@ public class ApplicationLauncher {
         pageMas = PageFactory.initElements(driverMobile, PageTabMas.class);
         pagePagos = PageFactory.initElements(driverMobile, PageTabPagos.class);
         pageTarjetas = PageFactory.initElements(driverMobile, PageTabTarjetas.class);
-
+        pagePreLogin = PageFactory.initElements(driverMobile, PagePreLoginContrasena.class);
+        
+        
               
     }
 
     public static void setUpChromeMobile() throws MalformedURLException {
         driverMobile = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilitiesChromeMobile());
         pageLogin = PageFactory.initElements(driverMobile, PageLogin.class);
-        //        pageLoginAppOnepay = PageFactory.initElements(driverMobile, PageLoginAppOnepay.class);
-        pageMain = PageFactory.initElements(driverMobile, homePage.class);
+        pageLoginAppOnepay = PageFactory.initElements(driverMobile, PageLoginAppOnepay.class);
+        pageTarjetas = PageFactory.initElements(driverMobile, PageTabTarjetas.class);
     }
 
 

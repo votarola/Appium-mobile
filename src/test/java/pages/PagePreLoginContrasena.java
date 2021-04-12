@@ -40,8 +40,9 @@ public class PagePreLoginContrasena {
     
 
     public void ingresaPass(String pass) {
-        wait.until(ExpectedConditions.visibilityOf(btnPass));
-        txtPass.clear();
+        wait.until(ExpectedConditions.visibilityOf(btnNoSoy));
+    	//txtPass.click();
+    	//txtPass.clear();
         txtPass.sendKeys(pass);
         btnPass.click();
 

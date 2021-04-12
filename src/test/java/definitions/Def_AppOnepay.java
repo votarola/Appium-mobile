@@ -20,9 +20,10 @@ public class Def_AppOnepay {
     public void quiero_ingresar_a_Onepay() throws Throwable {
         ApplicationLauncher.setUpAppium();
         Thread.sleep(5000);
-       	//ApplicationLauncher.pagePreLogin.ingresaPass(pass);
- 
-        // Write code here that turns the phrase above into concrete actions
+
+        //cuando se pasa por el pre login con contraseña//
+    	ApplicationLauncher.pagePreLogin.ingresaPass(pass);
+
 
     }
 
@@ -30,12 +31,9 @@ public class Def_AppOnepay {
     public void ingreso_a_la_app_con_mi_y(String email, String contra) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
 
-
     	
-        
-    	ApplicationLauncher.pageLogin.ingresaEmailPass(email,contra);
-       //	ApplicationLauncher.pageLogin.ClickIngreso();
-       	
+    	  /*
+    	   
         boolean btnIngresoUsuario = ApplicationLauncher.pageLogin.ClickIngreso();
         Assert.assertTrue("Boton ingreso de usuario",btnIngresoUsuario);
         Thread.sleep(5000);
@@ -45,7 +43,7 @@ public class Def_AppOnepay {
        	
        	ApplicationLauncher.pageLogin.NoFactorBiometric();
                
-    /*
+  
         ApplicationLauncher.pageLoginAppOnepay.clickbtnRegistro();
         ApplicationLauncher.pageLoginAppOnepay.clickbtnIngreso();
         ApplicationLauncher.pageLoginAppOnepay.ingresaEmailPass(email,contra);
@@ -70,32 +68,38 @@ public class Def_AppOnepay {
     public void ingreso_a_onepay() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
     	
+
+       	ApplicationLauncher.pageTarjetas.clicktabPagos();    	
        	ApplicationLauncher.pageTarjetas.clickAddCardST(); //boton cuando es flujo sin tarjeta
        	ApplicationLauncher.pageTarjetas.clickAddCardCredit();   
+        Thread.sleep(5000);
+       	
        	ApplicationLauncher.pageTarjetas.cambiarContexto();
         Thread.sleep(3000);
         
-       	/*
+     	/*
        	ApplicationLauncher.pageTarjetas.sendPAN(pan); 
        	ApplicationLauncher.pageTarjetas.sendExpirationDate(expDate); 
        	ApplicationLauncher.pageTarjetas.sendCVV(cvv); 
-       	*/
-       	
+ 	*/
+     
         boolean sendPAN = ApplicationLauncher.pageTarjetas.sendPAN(pan);
         Assert.assertTrue("Envio PAN", sendPAN);
         
-        boolean sendExpirationDate = ApplicationLauncher.pageTarjetas.sendCVV(expDate);
+        boolean sendExpirationDate = ApplicationLauncher.pageTarjetas.sendExpirationDate(expDate);
         Assert.assertTrue("Envio fecha expiracion", sendExpirationDate);
         
         boolean sendCVV = ApplicationLauncher.pageTarjetas.sendCVV(cvv);
         Assert.assertTrue("Envio cvv", sendCVV);
         
+              
         boolean ContiEnrolment = ApplicationLauncher.pageTarjetas.ContiEnrolment();
         Assert.assertTrue("Continuar enrolamiento", ContiEnrolment);
 
         ApplicationLauncher.driverMobile.context("NATIVE_APP");
         
-        ApplicationLauncher.pageTarjetas.AddCard();
+        ApplicationLauncher.pageTarjetas.initIncription();
+        ApplicationLauncher.pageTarjetas.ContinEnrolment();
         ApplicationLauncher.pageTarjetas.SeguirAddCard();
         ApplicationLauncher.pageTarjetas.RetornTBK();
         ApplicationLauncher.pageTarjetas.ContinuaraddOK();
