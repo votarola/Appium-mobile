@@ -1,127 +1,164 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("LoginOnepay.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("pagoRest.feature");
 formatter.feature({
   "line": 2,
-  "name": "Login",
+  "name": "pagoRestDesktop",
   "description": "",
-  "id": "login",
+  "id": "pagorestdesktop",
   "keyword": "Feature",
   "tags": [
     {
       "line": 1,
-      "name": "@LoginOnepay"
+      "name": "@pagoREST"
     }
   ]
 });
 formatter.scenarioOutline({
   "line": 4,
-  "name": "Login Onepay",
+  "name": "Pago REST desktop",
   "description": "",
-  "id": "login;login-onepay",
+  "id": "pagorestdesktop;pago-rest-desktop",
   "type": "scenario_outline",
   "keyword": "Scenario Outline"
 });
 formatter.step({
-  "line": 5,
-  "name": "quiero ingresar a Onepay",
+  "line": 6,
+  "name": "quiero realizar un pago desde la tienda rest por el monto \u003cmonto\u003e de la tienda desktop",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 6,
-  "name": "ingreso a la app con mi \u003cemail\u003e y \u003ccontrasena\u003e",
+  "line": 7,
+  "name": "confirmar el medio de pago \u003cmedioPago\u003e por el monto \u003cmonto\u003e cuota \u003cncuota\u003e y tarjeta \u003ctarjeta\u003e",
   "keyword": "When "
 });
 formatter.step({
-  "line": 7,
-  "name": "ingreso a onepay",
+  "line": 8,
+  "name": "se muestra el pago exito en la app, por el \u003cmonto\u003e y cuota \u003cncuota\u003e",
   "keyword": "Then "
 });
 formatter.examples({
-  "line": 9,
+  "line": 10,
   "name": "",
   "description": "",
-  "id": "login;login-onepay;",
+  "id": "pagorestdesktop;pago-rest-desktop;",
   "rows": [
     {
       "cells": [
-        "email",
-        "contrasena"
+        "monto",
+        "medioPago",
+        "ncuota",
+        "tarjeta"
       ],
-      "line": 10,
-      "id": "login;login-onepay;;1"
+      "line": 11,
+      "id": "pagorestdesktop;pago-rest-desktop;;1"
     },
     {
       "cells": [
-        "\"v.otarolamorales@gmail.com\"",
-        "\"Q1111111\""
+        "\"990\"",
+        "\"Credito\"",
+        "\"2\"",
+        "\"Prepago\""
       ],
-      "line": 11,
-      "id": "login;login-onepay;;2"
+      "line": 12,
+      "id": "pagorestdesktop;pago-rest-desktop;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 11,
-  "name": "Login Onepay",
+  "line": 12,
+  "name": "Pago REST desktop",
   "description": "",
-  "id": "login;login-onepay;;2",
+  "id": "pagorestdesktop;pago-rest-desktop;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
       "line": 1,
-      "name": "@LoginOnepay"
+      "name": "@pagoREST"
     }
   ]
 });
 formatter.step({
-  "line": 5,
-  "name": "quiero ingresar a Onepay",
+  "line": 6,
+  "name": "quiero realizar un pago desde la tienda rest por el monto \"990\" de la tienda desktop",
+  "matchedColumns": [
+    0
+  ],
   "keyword": "Given "
 });
 formatter.step({
-  "line": 6,
-  "name": "ingreso a la app con mi \"v.otarolamorales@gmail.com\" y \"Q1111111\"",
+  "line": 7,
+  "name": "confirmar el medio de pago \"Credito\" por el monto \"990\" cuota \"2\" y tarjeta \"Prepago\"",
   "matchedColumns": [
     0,
-    1
+    1,
+    2,
+    3
   ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 7,
-  "name": "ingreso a onepay",
+  "line": 8,
+  "name": "se muestra el pago exito en la app, por el \"990\" y cuota \"2\"",
+  "matchedColumns": [
+    0,
+    2
+  ],
   "keyword": "Then "
 });
 formatter.match({
-  "location": "Def_AppOnepay.quiero_ingresar_a_Onepay()"
+  "arguments": [
+    {
+      "val": "990",
+      "offset": 59
+    }
+  ],
+  "location": "REST.quiero_realizar_un_pago_desde_la_tienda_rest_por_el_monto_de_la_tienda_desktop(String)"
 });
 formatter.result({
-  "duration": 25525153675,
+  "duration": 43564897449,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "v.otarolamorales@gmail.com",
-      "offset": 25
+      "val": "Credito",
+      "offset": 28
     },
     {
-      "val": "Q1111111",
-      "offset": 56
+      "val": "990",
+      "offset": 51
+    },
+    {
+      "val": "2",
+      "offset": 63
+    },
+    {
+      "val": "Prepago",
+      "offset": 77
     }
   ],
-  "location": "Def_AppOnepay.ingreso_a_la_app_con_mi_y(String,String)"
+  "location": "REST.confirmar_el_medio_de_pago_por_el_monto_cuota_y_tarjeta(String,String,String,String)"
 });
 formatter.result({
-  "duration": 3180741,
+  "duration": 145746,
   "status": "passed"
 });
 formatter.match({
-  "location": "Def_AppOnepay.ingreso_a_onepay()"
+  "arguments": [
+    {
+      "val": "990",
+      "offset": 44
+    },
+    {
+      "val": "2",
+      "offset": 58
+    }
+  ],
+  "location": "REST.se_muestra_el_pago_exito_en_la_app_por_el_y_cuota(String,String)"
 });
 formatter.result({
-  "duration": 84069861126,
+  "duration": 108743,
   "status": "passed"
 });
 });

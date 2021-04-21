@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import pages.*;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -23,7 +22,12 @@ public class ApplicationLauncher {
     public static PageTabTarjetas pageTarjetas;
     public static PageTabMas pageMas;
     public static PageMohmal pageMohmal;
-    
+    public static PageWebpayREST pageWebpayREST;
+    public static PageModal pageModal;
+    public static PagoRest pagoRest;
+
+
+
 
 
 
@@ -39,7 +43,11 @@ public class ApplicationLauncher {
         pageWebPay = PageFactory.initElements(driverChrome, PageWebPay.class);
         pageWebpayNormal = PageFactory.initElements(driverChrome, PageWebpayNormal.class);
         pageMohmal = PageFactory.initElements(driverChrome, PageMohmal.class);
-                 
+        pageWebpayREST = PageFactory.initElements(driverChrome, PageWebpayREST.class);
+        pageModal = PageFactory.initElements(driverChrome, PageModal.class);
+        pagoRest = PageFactory.initElements(driverChrome, PagoRest.class);
+
+
         
         //pasar todas las clases con los objetos que se necesitan ocupar
     }

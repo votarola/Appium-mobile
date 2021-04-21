@@ -9,16 +9,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ApplicationLauncher;
 import utils.UtilsDriver;
 
+import java.util.Arrays;
+
 public class Def_WebPayOnepay {
 
     public static Object[][] compras = {
             {"597038357948", "11", "1500"},
             {"597038357948", "21", "2000"},
-            {"597038357921", "31", "2500"},
-            {"597038357921", "41", "8500"},
+
     };
 
-
+    private String[] codigo;
     public String codigoOnepay = "";
     public String SelectCuotas = "";
 
@@ -48,24 +49,29 @@ public class Def_WebPayOnepay {
                 ApplicationLauncher.pageWebPay.clickBtnSave();
                 Thread.sleep(1500);
             }
-            UtilsDriver.screenshot(ApplicationLauncher.driverChrome,"Print");
+          //  UtilsDriver.screenshot(ApplicationLauncher.driverChrome,"Print");
             ApplicationLauncher.pageWebPay.clickInitTransaction();
 
             ApplicationLauncher.pageWebPay.clickBtnPagoOnepay();
 
-            codigoOnepay = ApplicationLauncher.pageWebPay.retornarCodigoPagoOnepay();
+            System.out.println("#####################");
+            codigo = ApplicationLauncher.pageWebPay.obtenerCodigoOnePay();
+            System.out.println(Arrays.toString(codigo));
+            System.out.println("#####################");
 
-            System.out.println("codigoOnepay: " + codigoOnepay);
+//            codigoOnepay = ApplicationLauncher.pageWebPay.retornarCodigoPagoOnepay();
+ //           System.out.println("codigoOnepay: " + codigoOnepay);
 
 
         } catch (Exception e) {
             e.printStackTrace();
-            UtilsDriver.screenshot(ApplicationLauncher.driverChrome,"NoSuchElementException");
+           // UtilsDriver.screenshot(ApplicationLauncher.driverChrome,"NoSuchElementException");
         }
     }
 
     @When("^ingreso los montos y pago con onepay \"([^\"]*)\" y \"([^\"]*)\"$")
     public void ingreso_los_montos_y_pago_con_onepay_y(String arg1, String pass) throws Throwable {
+        /*
         ApplicationLauncher.setUpAppium();
         ApplicationLauncher.pageLoginAppOnepay.ingresarContraseña(pass);
         ApplicationLauncher.pageLoginAppOnepay.clickBtnIngresarConContraseña();
@@ -92,13 +98,15 @@ public class Def_WebPayOnepay {
         boolean irInicio = ApplicationLauncher.pageMain.clickIrInicio();
         Assert.assertTrue("Boton Ir la Inicio en estado de pago",irInicio);
 
+*/
+
     }
 
     @Then("^se realiza el pago con onepay$")
     public void se_realiza_el_pago_con_onepay() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
 
-        ApplicationLauncher.pageWebPay.clickbtnACK();
+//        ApplicationLauncher.pageWebPay.clickbtnACK();
 
 
 //        https://web1qa.test.transbank.cl:8443/ewebpay/initReturnMnorm

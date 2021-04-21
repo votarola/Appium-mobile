@@ -196,18 +196,21 @@ public class PageLoginAppOnepay {
     public void ingresarContraseña(String pass) {
         try {
             wait.until(ExpectedConditions.visibilityOf(inputPass));
+            inputPass.click();
             inputPass.sendKeys(pass);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void clickBtnIngresarConContraseña() {
+    public boolean clickBtnIngresarConContraseña() throws InterruptedException {
         try {
             wait.until(ExpectedConditions.visibilityOf(btnIngresarConContraseña));
             btnIngresarConContraseña.click();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 

@@ -43,13 +43,16 @@ public class PageTabHome {
     @FindBy(id = "lyKey0")
     private WebElement key0;
 
-    @FindBy(xpath = "//*[@text='Digitar código de compra']")
-    private WebElement ingresarCodigo;
+    @FindBy(id = "lyT")
+    private WebElement keyT;
 
-    @FindBy(xpath = "//*[@text='ESCANEAR QR']")
+    @FindBy(id = "tvInputOtt")
+    private WebElement clickclickIngresarCodigo;
+
+    @FindBy(id = "rlQrReader")
     private WebElement escanearQR;
 
-    @FindBy(xpath = "//*[@text='TU ÚLTIMO PAGO']")
+    @FindBy(id = "lyPayments")
     private WebElement ultimoPagoCard;
 
     @FindBy(xpath = "//*[@text='Detalle de compra']")
@@ -86,10 +89,10 @@ public class PageTabHome {
         }
     }
 
-    public boolean clickIngresarCodigo() {
+    public boolean clickclickIngresarCodigo() {
         try {
-            wait.until(ExpectedConditions.visibilityOf(ingresarCodigo));
-            ingresarCodigo.click();
+            wait.until(ExpectedConditions.visibilityOf(clickclickIngresarCodigo));
+            clickclickIngresarCodigo.click();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

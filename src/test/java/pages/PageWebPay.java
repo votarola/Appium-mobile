@@ -81,30 +81,69 @@ public class PageWebPay {
     @FindBy(xpath = ("//*[@id=\"j_idt49:j_idt54\"]"))
     private WebElement btnACK;
 
-    @FindBy(xpath = "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-payment/a[3]")
+
+    @FindBy(xpath = "//*[@id=\"onepay\"]")
     private WebElement btnPagoOnepay;
 
-    @FindBy(xpath = "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-onepay/div/div[2]/img" )
-    private WebElement qr;
+    @FindBy(tagName = "li")
 
+   // @FindBy(xpath = "/html/body/app-root/app-home/main-panel/main/section/right-panel/app-onepay/div[2]/div/div[1]/p/text()")
+    private List<WebElement> codigoOnePay; // Codigo
+
+
+
+    @FindBy(xpath = "/html/body/app-root/app-home/main-panel/main/section/right-panel/app-onepay/div[2]/div/div[1]/img" )
+    private WebElement waitCodigoOnepay; // espera codigo QR
+
+//    /html/body/app-root/app-home/main-panel/main/section/right-panel/app-onepay/div[2]/div/div[1]/p/strong
     @FindBy(xpath = "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-onepay/div/div[2]/ul")
     private WebElement codigoPagoOnepay;
 
     WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverChrome, 15);
+
+
+
+    public void waitCodigoOnePay() {
+        WebDriverWait wait = new WebDriverWait(ApplicationLauncher.driverChrome, 30);
+        wait.until(ExpectedConditions.visibilityOf(waitCodigoOnepay));
+        int array = 0;
+        while (array < 8) {
+            array = codigoOnePay.size();
+            System.out.println("Array: " + array);
+        }
+    }
+
+    public String[] obtenerCodigoOnePay() {
+        String[] codigo = new String[8];
+        waitCodigoOnePay();
+        try {
+            for (int i = 0; i < 8; i++) {
+                codigo[i] = codigoOnePay.get(i+1).getText();
+            }
+        } catch (Exception e) {
+            codigo[0] = e.getMessage();
+        }
+        return codigo;
+    }
+
+
+
+
+
 
     public String retornarCodigoPagoOnepay() throws InterruptedException {
         String codigoOnepay = "";
         Thread.sleep(6000);
         try {
             wait.until(ExpectedConditions.visibilityOf(codigoPagoOnepay));
-            wait.until(ExpectedConditions.visibilityOf(qr));
+            wait.until(ExpectedConditions.visibilityOf(waitCodigoOnepay));
             int size = 0;
             while (size < 5){
                 List<WebElement> lista = ApplicationLauncher.driverChrome.findElements(By.tagName("li"));
                 size = lista.size();
             }
             codigoOnepay = ApplicationLauncher.driverChrome.findElement(By.xpath(
-                    "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-onepay/div/div[2]/ul"))
+                          "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-onepay/div/div[2]/ul"))
                     .getText();
         } catch (Exception e){
             e.printStackTrace();

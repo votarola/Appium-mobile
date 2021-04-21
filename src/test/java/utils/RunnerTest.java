@@ -16,7 +16,9 @@ import java.util.Date;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features",
         glue = "definitions",
-        tags = "@LoginOnepay",
+        tags = "@pagoREST",
+        //@pagoREST pagoNativo  onePayModalDesktop
+                   //LoginOnepay
            //     tags = "@PagoWebpayNormalOnepay",
         plugin = { "pretty", "html:target/cucumber" ,
                 "json:target/cucumber.json",

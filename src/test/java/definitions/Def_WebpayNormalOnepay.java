@@ -8,12 +8,16 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ApplicationLauncher;
 
+import java.util.Arrays;
+
 public class Def_WebpayNormalOnepay {
 
     public String codigoOnepay = "";
     String monto = "990";
     String pan = "36000000001006";
     String cvv = "322";
+    private String[] codigo;
+
 
     @Given("^quiero realizar un pago por webpay normal con Onepay$")
     public void quiero_realizar_un_pago_por_webpay_normal_con_Onepay() throws Throwable {
@@ -33,8 +37,17 @@ public class Def_WebpayNormalOnepay {
             Thread.sleep(3000);
             ApplicationLauncher.pageWebpayNormal.clickBtnPagoOnepay();
 
+            System.out.println("#####################");
+
+            codigo = ApplicationLauncher.pageWebpayNormal.obtenerCodigoOnePay();
+            System.out.println(Arrays.toString(codigo));
+
+            System.out.println("#####################");
+
+
             codigoOnepay = ApplicationLauncher.pageWebpayNormal.retornarCodigoPagoOnepay();
             System.out.println("codigoOnepay: " + codigoOnepay);
+            System.out.println("#####################");
 
         } catch (Exception e) {
             e.printStackTrace();

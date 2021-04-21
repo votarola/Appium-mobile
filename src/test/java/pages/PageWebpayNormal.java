@@ -39,10 +39,8 @@ public class PageWebpayNormal {
 
     @FindBy(xpath = "/html/body/app-root/app-home/main-panel/main/section/right-panel/app-onepay/div[2]/div/div[1]/p/strong")
     private WebElement codigoPagoOnepay;
-    
-    
-       
-    
+
+
 
     @FindBy(xpath = ("//*[@id=\"j_idt49:j_idt54\"]"))
     private WebElement btnACK;
@@ -72,6 +70,7 @@ public class PageWebpayNormal {
         Amount.sendKeys(monto);
     }
 
+
     public String retornarCodigoPagoOnepay() throws InterruptedException {
         String codigoOnepay = "";
         Thread.sleep(6000);
@@ -84,7 +83,8 @@ public class PageWebpayNormal {
                 size = lista.size();
             }
             codigoOnepay = ApplicationLauncher.driverChrome.findElement(By.xpath(
-                    "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-onepay/div/div[2]/ul"))
+                    "/html/body/app-root/app-home/main-panel/main/section/right-panel/app-onepay/div[2]/div/div[1]/p/strong/"))
+
                     .getText();
         } catch (Exception e){
             e.printStackTrace();
@@ -106,5 +106,42 @@ public class PageWebpayNormal {
         wait.until(ExpectedConditions.visibilityOf(btnACK));
         btnACK.click();
     }
+
+    @FindBy(xpath = "/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-onepay/div/div[2]/img")
+    private WebElement waitCodigoOnepay;
+
+
+
+    public void waitCodigoOnePay() {
+        wait.until(ExpectedConditions.visibilityOf(waitCodigoOnepay));
+        int array = 0;
+        while (array < 8) {
+            array = codigoOnePay.size();
+            System.out.println("Array: " + array);
+        }
+    }
+
+  //  @FindBy(xpath = "/html/body/app-root/app-home/main-panel/main/section/right-panel/app-onepay/div[2]/div/div[1]/p/strong")
+        @FindBy(tagName = "li")
+    private List<WebElement> codigoOnePay; // Codigo
+
+
+    public String[] obtenerCodigoOnePay() {
+        String[] codigo = new String[8];
+         waitCodigoOnePay();
+        try {
+            for (int i = 0; i < 8; i++) {
+                codigo[i] = codigoOnePay.get(i+1).getText();
+            }
+        } catch (Exception e) {
+            codigo[0] = e.getMessage();
+        }
+        return codigo;
+
+    }
+
+
+
+
 }
 
